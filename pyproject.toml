@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "urbackup-gui"
+version = "0.1.0"
+description = ""
+authors = ["Mike Umana <mu304007@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10,<3.11"
+PySide6 = "^6.3.1"
+QtPy = "^2.1.0"
+qtpy-led = {git = "https://github.com/crash8229/qtpy_led.git"}
+
+[tool.poetry.dev-dependencies]
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
