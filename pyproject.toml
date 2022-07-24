@@ -1,16 +1,19 @@
 [tool.poetry]
-name = "urbackup-gui"
+name = "urbackupgui"
 version = "0.1.0"
-description = ""
+description = "A UrBackup Client GUI to use on my system since I had issues with package dependencies with the official one."
 authors = ["Mike Umana <mu304007@gmail.com>"]
 
 [tool.poetry.dependencies]
 python = "^3.10,<3.11"
 PySide6 = "^6.3.1"
 QtPy = "^2.1.0"
-qtpy-led = {git = "https://github.com/crash8229/qtpy_led.git"}
+mypy = "^0.971"
 
 [tool.poetry.dev-dependencies]
+mypy = "^0.971"
+black = "^22.6.0"
+pyinstaller = "^5.2"
 
 [build-system]
 requires = ["poetry-core>=1.0.0"]
