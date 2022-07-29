@@ -4,6 +4,7 @@ import sys
 import typing
 from datetime import datetime
 from string import Template
+from pathlib import Path
 
 from qtpy.QtCore import Qt, Slot, Signal, QTimer, QEvent
 from qtpy.QtGui import QIcon
@@ -23,11 +24,16 @@ from qtpy.QtWidgets import (
     QAction,
 )
 
+# Globals ##############################################################################################################
+RESOURCE_PATH = Path(__file__).resolve().parent
+
+# Helper Classes #######################################################################################################
+
 
 # I just want a scrollable list widget with no highlighting on items
 # It is just to display a list of string
 class ListWidget(QListWidget):
-    def __init__(self, parent: QWidget):
+    def __init__(self, parent: QWidget) -> None:
         super().__init__(parent)
         self.setFocusPolicy(Qt.NoFocus)
         self.setStyleSheet(
@@ -175,6 +181,7 @@ class StatusInfo(QWidget):
         self.connect_status.setText(connect_status)
 
 
+# App ##################################################################################################################
 class App(QMainWindow):
     status: Signal = Signal(dict)
 
@@ -184,10 +191,11 @@ class App(QMainWindow):
         self.setFixedSize(500, 250)
 
         # Load icons
+        icon_dir = RESOURCE_PATH.joinpath("icons")
         self.icons = {
-            "not_connected": QIcon("icons/database_red.png"),
-            "connected": QIcon("icons/database_white.png"),
-            "busy": QIcon("icons/database_yellow.png"),
+            "not_connected": QIcon(str(icon_dir.joinpath("database_red.png"))),
+            "connected": QIcon(str(icon_dir.joinpath("database_white.png"))),
+            "busy": QIcon(str(icon_dir.joinpath("database_yellow.png"))),
         }
         self.setWindowIcon(self.icons["not_connected"])
 
@@ -276,9 +284,9 @@ class App(QMainWindow):
 
     def changeEvent(self, event: QEvent) -> None:
         if (
-            event.type() == QEvent.WindowStateChange
-            and self.tray_icon.isSystemTrayAvailable()
-            and self.isMinimized()
+                event.type() == QEvent.WindowStateChange
+                and self.tray_icon.isSystemTrayAvailable()
+                and self.isMinimized()
         ):
             self.hide()
             event.ignore()
