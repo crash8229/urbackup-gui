@@ -284,9 +284,9 @@ class App(QMainWindow):
 
     def changeEvent(self, event: QEvent) -> None:
         if (
-                event.type() == QEvent.WindowStateChange
-                and self.tray_icon.isSystemTrayAvailable()
-                and self.isMinimized()
+            event.type() == QEvent.WindowStateChange
+            and self.tray_icon.isSystemTrayAvailable()
+            and self.isMinimized()
         ):
             self.hide()
             event.ignore()
