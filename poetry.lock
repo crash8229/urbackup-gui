@@ -122,6 +122,18 @@ python-versions = ">=3.6.0"
 future = "*"
 
 [[package]]
+name = "pillow"
+version = "9.2.0"
+description = "Python Imaging Library (Fork)"
+category = "dev"
+optional = false
+python-versions = ">=3.7"
+
+[package.extras]
+docs = ["furo", "olefile", "sphinx (>=2.4)", "sphinx-copybutton", "sphinx-issues (>=3.0.1)", "sphinx-removed-in", "sphinxext-opengraph"]
+tests = ["check-manifest", "coverage", "defusedxml", "markdown2", "olefile", "packaging", "pyroma", "pytest", "pytest-cov", "pytest-timeout"]
+
+[[package]]
 name = "platformdirs"
 version = "2.5.2"
 description = "A small Python module for determining appropriate platform-specific dirs, e.g. a \"user data dir\"."
@@ -256,7 +268,7 @@ python-versions = ">=3.7"
 [metadata]
 lock-version = "1.1"
 python-versions = "^3.10,<3.11"
-content-hash = "a551953788d37946fc15682ce16d0fc479420b828732c2030d4e698a6ea0d709"
+content-hash = "a1649afe73eb0b87898d0c5361148986a1dcbfa4911971e63b149faf2997c45e"
 
 [metadata.files]
 altgraph = []
@@ -270,6 +282,7 @@ mypy-extensions = []
 packaging = []
 pathspec = []
 pefile = []
+pillow = []
 platformdirs = []
 pyinstaller = []
 pyinstaller-hooks-contrib = []
