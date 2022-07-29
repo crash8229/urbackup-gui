@@ -248,12 +248,6 @@ class App(QMainWindow):
         main_layout.addWidget(self.status_info)
         self.status.connect(self.status_info.update_status)
 
-        # separator = QFrame(self)
-        # separator.setFrameShape(QFrame.HLine)
-        # separator.setFrameShadow(QFrame.Sunken)
-        # separator.setContentsMargins(0, 0, 0, 0)
-        # layout.addWidget(separator)
-
         # Perform initial update
         self.update_status()
 
@@ -326,12 +320,10 @@ class App(QMainWindow):
 
     def update_status(self) -> None:
         status = self.get_status()
-        # if status is not None:
         self.status.emit(status)
 
 
 if __name__ == "__main__":
     app = QApplication()
     window = App()
-    window.show()
     app.exec_()
