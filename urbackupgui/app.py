@@ -193,9 +193,9 @@ class App(QMainWindow):
         # Load icons
         icon_dir = RESOURCE_PATH.joinpath("icons")
         self.icons = {
-            "not_connected": QIcon(str(icon_dir.joinpath("database_red.png"))),
-            "connected": QIcon(str(icon_dir.joinpath("database_white.png"))),
-            "busy": QIcon(str(icon_dir.joinpath("database_yellow.png"))),
+            "not_connected": QIcon(str(icon_dir.joinpath("database_red.ico"))),
+            "connected": QIcon(str(icon_dir.joinpath("database_white.ico"))),
+            "busy": QIcon(str(icon_dir.joinpath("database_yellow.ico"))),
         }
         self.setWindowIcon(self.icons["not_connected"])
 
