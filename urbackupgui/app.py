@@ -187,7 +187,7 @@ class App(QMainWindow):
 
     def __init__(self) -> None:
         super().__init__(None)
-        self.setWindowTitle("UrBackup Control Panel")
+        self.setWindowTitle("UrBackup Status")
         self.setFixedSize(500, 250)
 
         # Load icons
@@ -231,6 +231,7 @@ class App(QMainWindow):
 
         # System Tray Icon
         self.tray_icon = QSystemTrayIcon(self.icons["not_connected"], self)
+        self.tray_icon.setToolTip(self.windowTitle())
         self.tray_icon.setVisible(True)
         self.tray_icon.activated.connect(self.tray_activated)  # type: ignore
         tray_menu = QMenu(self)
