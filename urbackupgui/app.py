@@ -50,7 +50,9 @@ class ListWidget(QListWidget):
 class StatusInfo(QWidget):
     statuses = {
         "FULL": "Full file backup running.",
+        "R_FULL": "Resumed full file backup.",
         "INCR": "Incremental file backup running.",
+        "R_INCR": "Resumed incremental file backup.",
         "IDLE": "Idle.",
     }
     status_format = Template("$status $progress")
